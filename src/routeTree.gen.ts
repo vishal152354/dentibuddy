@@ -9,12 +9,57 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TipsRouteImport } from './routes/tips'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as EmergencyRouteImport } from './routes/emergency'
+import { Route as ChildrenRouteImport } from './routes/children'
+import { Route as ChatbotRouteImport } from './routes/chatbot'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppointmentsRouteImport } from './routes/appointments'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DentistsIndexRouteImport } from './routes/dentists.index'
+import { Route as DentistsIdRouteImport } from './routes/dentists.$id'
+import { Route as BookDentistIdRouteImport } from './routes/book.$dentistId'
 
+const TipsRoute = TipsRouteImport.update({
+  id: '/tips',
+  path: '/tips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChildrenRoute = ChildrenRouteImport.update({
+  id: '/children',
+  path: '/children',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatbotRoute = ChatbotRouteImport.update({
+  id: '/chatbot',
+  path: '/chatbot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppointmentsRoute = AppointmentsRouteImport.update({
+  id: '/appointments',
+  path: '/appointments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +67,181 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DentistsIndexRoute = DentistsIndexRouteImport.update({
+  id: '/dentists/',
+  path: '/dentists/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentistsIdRoute = DentistsIdRouteImport.update({
+  id: '/dentists/$id',
+  path: '/dentists/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDentistIdRoute = BookDentistIdRouteImport.update({
+  id: '/book/$dentistId',
+  path: '/book/$dentistId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
   '/auth': typeof AuthRoute
+  '/chatbot': typeof ChatbotRoute
+  '/children': typeof ChildrenRoute
+  '/emergency': typeof EmergencyRoute
+  '/home': typeof HomeRoute
+  '/profile': typeof ProfileRoute
+  '/tips': typeof TipsRoute
+  '/book/$dentistId': typeof BookDentistIdRoute
+  '/dentists/$id': typeof DentistsIdRoute
+  '/dentists/': typeof DentistsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
   '/auth': typeof AuthRoute
+  '/chatbot': typeof ChatbotRoute
+  '/children': typeof ChildrenRoute
+  '/emergency': typeof EmergencyRoute
+  '/home': typeof HomeRoute
+  '/profile': typeof ProfileRoute
+  '/tips': typeof TipsRoute
+  '/book/$dentistId': typeof BookDentistIdRoute
+  '/dentists/$id': typeof DentistsIdRoute
+  '/dentists': typeof DentistsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appointments': typeof AppointmentsRoute
   '/auth': typeof AuthRoute
+  '/chatbot': typeof ChatbotRoute
+  '/children': typeof ChildrenRoute
+  '/emergency': typeof EmergencyRoute
+  '/home': typeof HomeRoute
+  '/profile': typeof ProfileRoute
+  '/tips': typeof TipsRoute
+  '/book/$dentistId': typeof BookDentistIdRoute
+  '/dentists/$id': typeof DentistsIdRoute
+  '/dentists/': typeof DentistsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths:
+    | '/'
+    | '/appointments'
+    | '/auth'
+    | '/chatbot'
+    | '/children'
+    | '/emergency'
+    | '/home'
+    | '/profile'
+    | '/tips'
+    | '/book/$dentistId'
+    | '/dentists/$id'
+    | '/dentists/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth'
-  id: '__root__' | '/' | '/auth'
+  to:
+    | '/'
+    | '/appointments'
+    | '/auth'
+    | '/chatbot'
+    | '/children'
+    | '/emergency'
+    | '/home'
+    | '/profile'
+    | '/tips'
+    | '/book/$dentistId'
+    | '/dentists/$id'
+    | '/dentists'
+  id:
+    | '__root__'
+    | '/'
+    | '/appointments'
+    | '/auth'
+    | '/chatbot'
+    | '/children'
+    | '/emergency'
+    | '/home'
+    | '/profile'
+    | '/tips'
+    | '/book/$dentistId'
+    | '/dentists/$id'
+    | '/dentists/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppointmentsRoute: typeof AppointmentsRoute
   AuthRoute: typeof AuthRoute
+  ChatbotRoute: typeof ChatbotRoute
+  ChildrenRoute: typeof ChildrenRoute
+  EmergencyRoute: typeof EmergencyRoute
+  HomeRoute: typeof HomeRoute
+  ProfileRoute: typeof ProfileRoute
+  TipsRoute: typeof TipsRoute
+  BookDentistIdRoute: typeof BookDentistIdRoute
+  DentistsIdRoute: typeof DentistsIdRoute
+  DentistsIndexRoute: typeof DentistsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tips': {
+      id: '/tips'
+      path: '/tips'
+      fullPath: '/tips'
+      preLoaderRoute: typeof TipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/children': {
+      id: '/children'
+      path: '/children'
+      fullPath: '/children'
+      preLoaderRoute: typeof ChildrenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chatbot': {
+      id: '/chatbot'
+      path: '/chatbot'
+      fullPath: '/chatbot'
+      preLoaderRoute: typeof ChatbotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointments': {
+      id: '/appointments'
+      path: '/appointments'
+      fullPath: '/appointments'
+      preLoaderRoute: typeof AppointmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,12 +251,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dentists/': {
+      id: '/dentists/'
+      path: '/dentists'
+      fullPath: '/dentists/'
+      preLoaderRoute: typeof DentistsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dentists/$id': {
+      id: '/dentists/$id'
+      path: '/dentists/$id'
+      fullPath: '/dentists/$id'
+      preLoaderRoute: typeof DentistsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$dentistId': {
+      id: '/book/$dentistId'
+      path: '/book/$dentistId'
+      fullPath: '/book/$dentistId'
+      preLoaderRoute: typeof BookDentistIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppointmentsRoute: AppointmentsRoute,
   AuthRoute: AuthRoute,
+  ChatbotRoute: ChatbotRoute,
+  ChildrenRoute: ChildrenRoute,
+  EmergencyRoute: EmergencyRoute,
+  HomeRoute: HomeRoute,
+  ProfileRoute: ProfileRoute,
+  TipsRoute: TipsRoute,
+  BookDentistIdRoute: BookDentistIdRoute,
+  DentistsIdRoute: DentistsIdRoute,
+  DentistsIndexRoute: DentistsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
