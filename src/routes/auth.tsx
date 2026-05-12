@@ -49,14 +49,6 @@ function AuthPage() {
     toast.success("Account created — you're in!");
   }
 
-  async function googleSignIn() {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: { redirectTo: window.location.origin + "/home" },
-    });
-    if (error) toast.error(error.message);
-  }
-
   return (
     <div className="phone-frame min-h-dvh flex flex-col">
       <div className="px-5 pt-6">
@@ -103,12 +95,10 @@ function AuthPage() {
           </TabsContent>
         </Tabs>
 
-        <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
-          <div className="h-px flex-1 bg-border" /> or <div className="h-px flex-1 bg-border" />
-        </div>
-        <Button onClick={googleSignIn} variant="outline" className="w-full h-12 rounded-2xl" size="lg">
-          Continue with Google
-        </Button>
+      </div>
+    </div>
+  );
+}
       </div>
     </div>
   );
