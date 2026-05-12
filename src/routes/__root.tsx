@@ -78,11 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Find pediatric dentists, book visits, ask our AI dental buddy, and keep your child's smile bright." },
       { name: "author", content: "DentiBuddy" },
       { name: "theme-color", content: "#5cb8e6" },
-      { property: "og:title", content: "DentiBuddy — Pediatric Dental Care" },
-      { property: "og:description", content: "AI-powered pediatric dental healthcare for parents." },
+      { property: "og:title", content: "DentiBuddy — Pediatric Dental Care for Kids" },
+      { property: "og:description", content: "Find pediatric dentists, book visits, ask our AI dental buddy, and keep your child's smile bright." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "DentiBuddy — Pediatric Dental Care for Kids" },
+      { name: "twitter:description", content: "Find pediatric dentists, book visits, ask our AI dental buddy, and keep your child's smile bright." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/73b19bd0-e53a-4ceb-924b-2e941f38696d/id-preview-31b9b1bf--14722986-5afa-42e7-8cdc-b71bd2134436.lovable.app-1778604756217.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/73b19bd0-e53a-4ceb-924b-2e941f38696d/id-preview-31b9b1bf--14722986-5afa-42e7-8cdc-b71bd2134436.lovable.app-1778604756217.png" },
     ],
     links: [
       {
