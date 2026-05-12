@@ -94,11 +94,6 @@ function AuthPage() {
             </form>
           </TabsContent>
         </Tabs>
-
-      </div>
-    </div>
-  );
-}
       </div>
     </div>
   );
