@@ -14,7 +14,219 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          child_id: string
+          created_at: string
+          dentist_id: string
+          id: string
+          notes: string | null
+          parent_id: string
+          reason: string | null
+          status: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          child_id: string
+          created_at?: string
+          dentist_id: string
+          id?: string
+          notes?: string | null
+          parent_id: string
+          reason?: string | null
+          status?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          child_id?: string
+          created_at?: string
+          dentist_id?: string
+          id?: string
+          notes?: string | null
+          parent_id?: string
+          reason?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_dentist_id_fkey"
+            columns: ["dentist_id"]
+            isOneToOne: false
+            referencedRelation: "dentists"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      children: {
+        Row: {
+          avatar_emoji: string | null
+          created_at: string
+          date_of_birth: string | null
+          gender: string | null
+          id: string
+          name: string
+          notes: string | null
+          parent_id: string
+        }
+        Insert: {
+          avatar_emoji?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          gender?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          parent_id: string
+        }
+        Update: {
+          avatar_emoji?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          gender?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          parent_id?: string
+        }
+        Relationships: []
+      }
+      dentists: {
+        Row: {
+          address: string | null
+          available_today: boolean | null
+          bio: string | null
+          city: string | null
+          clinic_name: string
+          consultation_fee: number | null
+          created_at: string
+          experience_years: number | null
+          id: string
+          name: string
+          photo_url: string | null
+          rating: number | null
+          specialty: string | null
+        }
+        Insert: {
+          address?: string | null
+          available_today?: boolean | null
+          bio?: string | null
+          city?: string | null
+          clinic_name: string
+          consultation_fee?: number | null
+          created_at?: string
+          experience_years?: number | null
+          id?: string
+          name: string
+          photo_url?: string | null
+          rating?: number | null
+          specialty?: string | null
+        }
+        Update: {
+          address?: string | null
+          available_today?: boolean | null
+          bio?: string | null
+          city?: string | null
+          clinic_name?: string
+          consultation_fee?: number | null
+          created_at?: string
+          experience_years?: number | null
+          id?: string
+          name?: string
+          photo_url?: string | null
+          rating?: number | null
+          specialty?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      tips: {
+        Row: {
+          category: string | null
+          content: string
+          created_at: string
+          emoji: string | null
+          id: string
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          content: string
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string | null
+          content?: string
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
